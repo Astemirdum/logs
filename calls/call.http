@@ -1,0 +1,28 @@
+#### Запрос в публичный сервер
+
+# curl -X POST http://localhost:8081/api/v1/logs
+#  -H 'Content-Type: application/json'
+#  -d '{"raw": "Joe"}'
+POST http://localhost:8891/api/v1/logs
+Content-Type: application/json
+
+{
+  "raw": "rawwwwww111111"
+}
+
+###
+
+# curl -X GET 'http://localhost:8081/api/v1/logs/7'
+GET http://localhost:8891/api/v1/logs/1
+Content-Type: application/json
+###
+
+###
+
+# curl -X GET http://localhost:8891/api/v1/logs \
+#  -H "Accept: application/json"
+GET http://localhost:8891/api/v1/logs
+Content-Type: application/json
+###
+
+

@@ -1,0 +1,10 @@
+
+server:
+  host: "0.0.0.0" # "localhost"
+  port: 8081
+
+db:
+  hosts: ["db", "db1", "db2"] #["localhost", "localhost", "localhost"]
+  ports: [5432, 5432, 5432] # [5432, 5433, 5434]
+  user: "post"
+  dbname: "logdb"
