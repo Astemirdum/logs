@@ -31,12 +31,18 @@ func NewDB(cfg *config.DB) (*DB, error) {
 	if err != nil {
 		return nil, err
 	}
+	if err = db.master.Ping(); err != nil {
+		return nil, fmt.Errorf("db master ping: %w", err)
+	}
 
 	db.slaves = make([]*sqlx.DB, len(cfg.Hosts)-1)
 	for i := range db.slaves {
 		db.slaves[i], err = sqlx.Open("pgx", newDSN(cfg, i+1))
 		if err != nil {
 			return nil, err
+		}
+		if err = db.slaves[i].Ping(); err != nil {
+			return nil, fmt.Errorf("db slave #%d ping: %w", i, err)
 		}
 	}
 	return &db, nil

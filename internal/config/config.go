@@ -54,5 +54,4 @@ func GetConfigYML(configYML string) *Config {
 func printConfig(cfg *Config) {
 	jscfg, _ := json.MarshalIndent(cfg, "", "	")
 	logrus.Info(string(jscfg))
-	// fmt.Println(string(jscfg))
 }

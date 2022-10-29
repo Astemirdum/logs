@@ -1,7 +1,6 @@
 version: '3.8'
 
 services:
-
   log1:
     restart: unless-stopped
     container_name: log1
@@ -54,7 +53,7 @@ services:
 
   #master
   db:
-    restart: always
+    restart: unless-stopped
     image: postgres:latest
     healthcheck:
       test: [ "CMD", "pg_isready", "-q", "-d", "postgres", "-U", "postgres" ]
@@ -81,7 +80,7 @@ services:
       - log-network
   #slave1
   db1:
-    restart: always
+    restart: unless-stopped
     image: postgres:latest
     container_name: db1
     environment:
@@ -100,7 +99,7 @@ services:
       - log-network
   #slave2
   db2:
-    restart: always
+    restart: unless-stopped
     image: postgres:latest
     container_name: db2
     environment:
