@@ -117,6 +117,7 @@ services:
     networks:
       - log-network
 
+
 networks:
   log-network:
     driver: bridge
